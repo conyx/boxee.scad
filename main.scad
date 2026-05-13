@@ -170,6 +170,9 @@ hinge_mount_gap = 0.1; // .05
 // Gap between hinge segments
 hinge_segments_gap = 0.15; // .05
 
+// Extra clearance added to hinge hardware fit (pin holes, screw head and nut recesses). Increase if hardware doesn't fit. Has no effect for print-in-place hinges.
+hinge_hardware_tolerance = 0.1; // [0:0.01:0.3]
+
 /* [Hinges / print-in-place] */
 
 // Length of each print-in-place hinge
@@ -202,9 +205,6 @@ hinge_nut_width = 1.8; // .1
 
 // Hinge screw nut size (i.e., the spanner/wrench size needed)
 hinge_nut_size = 4; // .1
-
-// Extra clearance added to screw head and nut recesses. Increase if hardware doesn't fit.
-hinge_screw_tolerance = 0.1; // [0:0.01:0.3]
 
 /* [Hinges / self-tapping screw] */
 

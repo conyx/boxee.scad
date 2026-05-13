@@ -118,7 +118,7 @@ function get_hinge_knuckle_offset() = hinge_knuckle_diameter / 2 + hinge_mount_g
 function get_hinge_length() = hinge_join_type == "screw_self_tap"
   ? hinge_self_tap_screw_length + hinge_self_tap_screw_gap
   : hinge_join_type == "screw_nut"
-    ? hinge_screw_length + hinge_screw_head_width + 4*hinge_screw_tolerance
+    ? hinge_screw_length + hinge_screw_head_width + 4*hinge_hardware_tolerance
     : hinge_join_type == "print_in_place"
       ? hinge_in_place_length
       : hinge_pin_length;
