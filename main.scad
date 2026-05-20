@@ -143,7 +143,7 @@ magnet_tolerance = 0.1; // [0:0.01:0.3]
 
 /* [Hinges] */
 
-// How hinge segments should be joined.  "Snap-fit" hinges assemble after printing without hardware (parts snap together), "Simple pin" creates a simple hole with a specific diameter, "Screw with nut" additionally creates holes for the screw head and nut, "Self-tapping screw" creates a hole for the screw head and adjusts the last segment for self-tapping.
+// How hinge segments should be joined.  "Snap-fit" hinges assemble after printing without hardware (parts snap together), "Simple pin" creates a simple hole with a specific diameter, "Screw with nut" additionally creates counterbores for flat the screw head and nut, "Self-tapping screw" creates a countersink for the conical screw head and adjusts the last segment for self-tapping.
 hinge_join_type = "snap_fit"; // [snap_fit: Snap-fit, pin: Simple pin, screw_nut: Screw with nut, screw_self_tap: Self-tapping screw]
 
 // # of hinges
@@ -170,7 +170,7 @@ hinge_mount_gap = 0.1; // .05
 // Gap between hinge segments
 hinge_segments_gap = 0.15; // .05
 
-// Extra clearance added to hinge hardware fit (pin holes, screw head and nut recesses). Increase if hardware doesn't fit. Has no effect for snap-fit hinges.
+// Extra clearance added to hinge hardware fit (pin holes, screw head and nut counterbores). Increase if hardware doesn't fit. Has no effect for snap-fit hinges.
 hinge_hardware_tolerance = 0.1; // [0:0.01:0.3]
 
 /* [Hinges / snap-fit] */
@@ -194,13 +194,13 @@ hinge_screw_length = 25;
 // Hinge screw diameter
 hinge_screw_diameter = 2.5;  // .05
 
-// Hinge screw head width
+// Hinge screw head width (depth of the screw head counterbore)
 hinge_screw_head_width = 1.8; // .1
 
 // Hinge screw head diameter
 hinge_screw_head_diameter = 4; // .1
 
-// Hinge screw nut width (depth of the nut recess)
+// Hinge screw nut width (depth of the nut counterbore)
 hinge_nut_width = 1.8; // .1
 
 // Hinge screw nut size (i.e., the spanner/wrench size needed)
