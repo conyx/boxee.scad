@@ -1,3 +1,29 @@
+module knuckle_hinge_wrapper(length,
+                             segs,
+                             offset,
+                             inner,
+                             arm_angle,
+                             gap,
+                             seg_ratio,
+                             knuckle_diam,
+                             pin_diam,
+                             snap_fit,
+                             tap_depth) {
+  knuckle_hinge(length = length,
+                segs = segs,
+                offset = offset,
+                inner = inner,
+                arm_angle = arm_angle,
+                gap = gap,
+                seg_ratio = seg_ratio,
+                knuckle_diam = knuckle_diam,
+                pin_diam = pin_diam,
+                clear_top = true,
+                in_place = snap_fit,
+                tap_depth = tap_depth,
+                screw_head = "flat");
+}
+
 module hinge(is_box_hinge) {
   screw_head_cut_h = hinge_screw_head_width + 2*hinge_hardware_tolerance;
   screw_head_cut_d = hinge_screw_head_diameter + 2*hinge_hardware_tolerance;
@@ -6,22 +32,21 @@ module hinge(is_box_hinge) {
 
   color(OUTSIDE_ACCESSORIES_COLOR)
   difference() {
-    knuckle_hinge(length = get_hinge_length(),
-                  segs = hinge_segments,
-                  offset = get_hinge_knuckle_offset(),
-                  knuckle_diam = hinge_knuckle_diameter,
-                  pin_diam = get_hinge_hole_diameter(),
-                  screw_head = "flat",
-                  tap_depth = hinge_self_tap_screw_tap_depth,
-                  in_place = hinge_join_type == "snap_fit",
-                  gap = hinge_segments_gap,
-                  inner = !is_box_hinge,
-                  arm_angle = hinge_arm_angle,
-                  clear_top = true,
-                  seg_ratio = hinge_segments_ratio,
-                  orient = BACK,
-                  spin = 180,
-                  $slop = hinge_join_type != "snap_fit" ? hinge_hardware_tolerance : 0);
+    xrot(-90) zrot(180)
+      knuckle_hinge_wrapper(
+        length = get_hinge_length(),
+        segs = hinge_segments,
+        offset = get_hinge_knuckle_offset(),
+        knuckle_diam = hinge_knuckle_diameter,
+        pin_diam = get_hinge_hole_diameter(),
+        tap_depth = hinge_self_tap_screw_tap_depth,
+        snap_fit = hinge_join_type == "snap_fit",
+        gap = hinge_segments_gap,
+        inner = !is_box_hinge,
+        arm_angle = hinge_arm_angle,
+        seg_ratio = hinge_segments_ratio,
+        $slop = hinge_join_type != "snap_fit" ? hinge_hardware_tolerance : 0
+      );
 
     // Screw head/nut hole in first segment
     if (hinge_join_type == "screw_nut") {

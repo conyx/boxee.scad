@@ -11,20 +11,20 @@ module latch_dovetail(is_male) {
 }
 
 module latch_hinge(is_male) {
-  knuckle_hinge(length = get_latch_x_width_outside(),
-                segs = 3,
-                offset = get_latch_hinge_diameter() / 2,
-                knuckle_diam = get_latch_hinge_diameter(),
-                gap = latch_hinge_gap,
-                clear_top=true,
-                inner = is_male,
-                in_place=true,
-                pin_diam = get_in_place_knuckle_hinge_pin_diam(get_latch_hinge_diameter()),
-                arm_angle = is_male ? 90 : latch_hinge_arm_angle,
-                seg_ratio = get_latch_inner_hinge_segment_width()
-                            / ((get_latch_x_width_outside() - get_latch_inner_hinge_segment_width()) / 2),
-                orient = is_male ? BOTTOM : FRONT
-  );
+  rot(a = is_male ? 180 : 90, v = is_male ? BACK : RIGHT)
+    knuckle_hinge_wrapper(
+      length = get_latch_x_width_outside(),
+      segs = 3,
+      offset = get_latch_hinge_diameter() / 2,
+      knuckle_diam = get_latch_hinge_diameter(),
+      gap = latch_hinge_gap,
+      inner = is_male,
+      snap_fit=true,
+      pin_diam = get_in_place_knuckle_hinge_pin_diam(get_latch_hinge_diameter()),
+      arm_angle = is_male ? 90 : latch_hinge_arm_angle,
+      seg_ratio = get_latch_inner_hinge_segment_width() /
+                  ((get_latch_x_width_outside() - get_latch_inner_hinge_segment_width()) / 2)
+    );
 }
 
 module latch_female_support() {
