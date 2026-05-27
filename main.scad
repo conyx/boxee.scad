@@ -38,7 +38,7 @@ compartments_transpose = false;
 // Bottom part (box) height. The sum of the bottom and lid heights equals the total interior height of the container.
 bottom_height = 25; // .5
 
-// Lid height. The sum of the bottom and lid heights equals the total interior height of the container. This has no effect if slider lid is in use. 
+// Lid height. The sum of the bottom and lid heights equals the total interior height of the container. This has no effect if slider lid is in use.
 lid_height = 10; // .5
 
 // Wall thickness. This adds to the outside dimensions of the box.

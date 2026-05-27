@@ -129,11 +129,11 @@ module latches_front() {
   // Calculate spacing for equal distribution along X axis
   latch_spacing = (get_x_width_outside() - latches_number * get_latch_x_width_outside())
                   / (latches_number + 1);
-  
+
   box_center_x = -(get_x_width_outside()/2 + get_box_x_margin());
   lid_center_x = get_x_width_outside()/2 + get_latch_margin();
   latch_y = -get_y_depth_outside()/2;
-  
+
   color(OUTSIDE_ACCESSORIES_COLOR)
     for (i = [0 : latches_number - 1]) {
       latch_x_offset = (i + 1) * latch_spacing

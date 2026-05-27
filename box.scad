@@ -42,8 +42,8 @@ module box() {
           assert(separators_z_offset <= bottom_height + get_lp_height(),
             str("separators_z_offset must be less than bottom_height (+ lip_height if lip used) (= ",
                 bottom_height + get_lp_height(), "mm). ",
-                "Current value: ", separators_z_offset, "mm"));  
-        
+                "Current value: ", separators_z_offset, "mm"));
+
           up(get_box_height_outside() - separators_z_offset)
             cuboid([get_x_width(), get_y_depth(), separators_z_offset + SWO],
                    rounding = compartment_outer_rounding,
