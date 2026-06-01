@@ -167,7 +167,7 @@ hinge_arm_angle = 45; // [30:1:90]
 // Additional offset between the hinge and the box/lid
 hinge_mount_gap = 0.1; // .05
 
-// Gap between hinge segments
+// Gap between hinge segments. WARNING: snap-fit hinge is optimized to default gap 0.15. If you adjust the gap you might need to adjust "hinge_snap_fit_firmness" too.
 hinge_segments_gap = 0.15; // .05
 
 // Extra clearance added to hinge hardware fit (pin holes, screw head and nut counterbores). Increase if hardware doesn't fit. Has no effect for snap-fit hinges.
@@ -177,6 +177,9 @@ hinge_hardware_tolerance = 0.1; // [0:0.01:0.3]
 
 // Length of each snap-fit hinge
 hinge_snap_fit_length = 25;
+
+// How firmly the snap-fit hinge clips together (0 = easiest to assemble and disassemble, 1 = hardest to assemble but firmest hold).
+hinge_snap_fit_firmness = 0.5; // [0:0.05:1]
 
 /* [Hinges / simple pin] */
 
@@ -246,8 +249,11 @@ latch_support_angle = 45; // [30:1:90]
 // Angle of the latch hinge arm measured down from the vertical. 90 = No arm.
 latch_hinge_arm_angle = 45; // [30:1:90]
 
-// Gap between latch hinge segments
-latch_hinge_gap = 0.15; // .05
+// Gap between latch hinge segments. WARNING: snap-fit hinge is optimized to default gap 0.15. If you adjust the gap you might need to adjust "latch_hinge_firmness" too.
+latch_hinge_segments_gap = 0.15; // .05
+
+// How firmly the latch's snap-fit hinge clips together (0 = easiest to assemble and disassemble, 1 = hardest to assemble but firmest hold).
+latch_hinge_firmness = 0.5; // [0:0.05:1]
 
 // Extra clearance added to latch dovetail dimensions. Increase if the latch is too tight. WARNING: snap lock is optimized to default tolerance 0.1. If you adjust tolerance you might need to adjust "latch_snap_lock_firmness" too.
 latch_tolerance = 0.1; // [0:0.01:0.3]

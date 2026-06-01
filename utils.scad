@@ -156,7 +156,7 @@ function get_latch_x_width_back() = latch_x_width * 0.9;
 function get_latch_hinge_diameter() = latch_y_thickness;
 function get_latch_inner_hinge_segment_width() = latch_x_width
                                                  - latch_z_height / get_latch_slope() * 2
-                                                 + latch_hinge_gap;
+                                                 + latch_hinge_segments_gap;
 function get_latch_notch_y_depth() = latch_y_thickness / 2;
 function get_latch_notch_z_height() = min(latch_y_thickness / 2, latch_z_height / 5);
 function get_latch_snap_lock_diameter_female() = 3;
