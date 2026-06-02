@@ -10,19 +10,107 @@ module knuckle_hinge_wrapper(length,
                              snap_fit,
                              snap_fit_firmness,
                              tap_depth) {
-  knuckle_hinge(length = length,
-                segs = segs,
-                offset = offset,
-                inner = inner,
-                arm_angle = arm_angle,
-                gap = gap,
-                seg_ratio = seg_ratio,
-                knuckle_diam = knuckle_diam,
-                pin_diam = pin_diam,
-                clear_top = true,
-                in_place = snap_fit,
-                tap_depth = tap_depth,
-                screw_head = "flat");
+  difference() {
+    knuckle_hinge(length = length,
+                  segs = segs,
+                  offset = offset,
+                  inner = inner,
+                  arm_angle = arm_angle,
+                  gap = gap,
+                  seg_ratio = seg_ratio,
+                  knuckle_diam = knuckle_diam,
+                  pin_diam = pin_diam,
+                  clear_top = true,
+                  in_place = snap_fit,
+                  tap_depth = tap_depth,
+                  screw_head = "flat");
+    if (snap_fit) {
+      knuckle_hinge_snap_fit_sockets(length = length,
+                                     segs = segs,
+                                     offset = offset,
+                                     inner = inner,
+                                     gap = gap,
+                                     seg_ratio = seg_ratio,
+                                     knuckle_diam = knuckle_diam,
+                                     pin_diam = pin_diam,
+                                     firmness = snap_fit_firmness);
+    }
+  }
+}
+
+// Snap-fit sockets: per segment, a channel from the pin axis up to the barrel
+// top (a hull of two pin-coaxial 45-degree cones) that the mating cone presses
+// into radially and is gripped by. `firmness` shrinks the cone 0.3..0.5 mm
+// (smaller = firmer). Layout mirrors knuckle_hinge() so each socket lands where
+// a mating cone seats.
+module knuckle_hinge_snap_fit_sockets(length,
+                                      segs,
+                                      offset,
+                                      inner,
+                                      gap,
+                                      seg_ratio,
+                                      knuckle_diam,
+                                      pin_diam,
+                                      firmness) {
+  // segment layout, mirroring knuckle_hinge()
+  outer_segments_number = ceil(segs / 2);
+  inner_segments_number = floor(segs / 2);
+  outer_segment_length  = gap
+                          + (length - (segs - 1) * gap)
+                          / (outer_segments_number + inner_segments_number * seg_ratio);
+  inner_segment_length  = gap
+                          + (length - (segs - 1) * gap)
+                          / (outer_segments_number + inner_segments_number * seg_ratio)
+                          * seg_ratio;
+  segments_number       = inner ? inner_segments_number : outer_segments_number;
+  segment_spacing       = outer_segment_length + inner_segment_length;
+  // even counts shift half a segment to stay centred
+  even_segments_x_shift = segs % 2 == 1 ? 0
+                        : inner ? outer_segment_length / 2
+                        : inner_segment_length / 2;
+  segment_body_length   = (inner ? inner_segment_length : outer_segment_length) - gap;
+
+  // socket cone = mating cone (base radius pin_diam/2, 45 degrees) shrunk by
+  // firmness so it grips the male cone (smaller = firmer)
+  shrink      = lerp(0.3, 0.5, firmness);
+  cone_radius = pin_diam / 2 - shrink;
+  cone_height = pin_diam / 2 * tan(45) - shrink;
+  assert(cone_radius > 0 && cone_height > 0,
+         "snap-fit socket collapsed: pin_diam too small for this firmness");
+
+  // BOSL2 cuts the in_place cone's spike at 80% of its height (flat tip = 20% of
+  // the base radius). Match that on the seat cone so the mating cone's flat tip
+  // seats firmly instead of jamming on a sharp apex.
+  spike_keep      = 0.8;
+  seat_height     = cone_height * spike_keep;
+  seat_tip_radius = cone_radius * (1 - spike_keep);
+
+  // the socket opens on the +X face (outer) / -X face (inner) of each segment
+  socket_face_x_offset = (inner ? -1 : 1) * (segment_body_length / 2 + SWO);
+  pin_z        = offset;
+  barrel_top_z = offset + knuckle_diam / 2;
+
+  // knuckle_hinge() runs segments along -X by index, so step copies likewise
+  left(even_segments_x_shift)
+    xcopies(n = segments_number, spacing = -segment_spacing) {
+      // the hinge's far end has no mating cone, so it needs no socket
+      is_edge = (!inner && segs % 2 == 1 && $idx == 0) ||
+                (inner && segs % 2 == 0 && $idx == segments_number - 1);
+      if (!is_edge) {
+        // a spike-cut seat on the pin axis, hulled up to a full lead-in cone
+        // at the barrel top: the channel the mating cone presses down into
+        hull()
+          for (c = [[pin_z,        seat_height, seat_tip_radius],  // seat (spike-cut)
+                    [barrel_top_z, cone_height, 0]])               // lead-in (full cone)
+            let (z = c[0], cone_len = c[1], tip_radius = c[2])
+              // base on the receiving face, tip pointing into the segment
+              translate([socket_face_x_offset, 0, z])
+                xcyl(l = cone_len,
+                     r1 = inner ? cone_radius : tip_radius,
+                     r2 = inner ? tip_radius : cone_radius,
+                     anchor = inner ? LEFT : RIGHT);
+      }
+    }
 }
 
 module hinge(is_box_hinge) {
