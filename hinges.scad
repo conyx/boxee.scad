@@ -40,7 +40,7 @@ module knuckle_hinge_wrapper(length,
 
 // Snap-fit sockets: per segment, a channel from the pin axis up to the barrel
 // top (a hull of two pin-coaxial 45-degree cones) that the mating cone presses
-// into radially and is gripped by. `firmness` shrinks the cone 0.3..0.5 mm
+// into radially and is gripped by. `firmness` shrinks the cone 0.35..0.55 mm
 // (smaller = firmer). Layout mirrors knuckle_hinge() so each socket lands where
 // a mating cone seats.
 module knuckle_hinge_snap_fit_sockets(length,
@@ -72,7 +72,7 @@ module knuckle_hinge_snap_fit_sockets(length,
 
   // socket cone = mating cone (base radius pin_diam/2, 45 degrees) shrunk by
   // firmness so it grips the male cone (smaller = firmer)
-  shrink      = lerp(0.3, 0.5, firmness);
+  shrink      = lerp(0.35, 0.55, firmness);
   cone_radius = pin_diam / 2 - shrink;
   cone_height = pin_diam / 2 * tan(45) - shrink;
   assert(cone_radius > 0 && cone_height > 0,
