@@ -170,9 +170,6 @@ hinge_mount_gap = 0.1; // .05
 // Gap between hinge segments. WARNING: snap-fit hinge is optimized to default gap 0.15. If you adjust the gap you might need to adjust "hinge_snap_fit_firmness" too.
 hinge_segments_gap = 0.15; // .05
 
-// Extra clearance added to hinge hardware fit (pin holes, screw head and nut counterbores). Increase if hardware doesn't fit. Has no effect for snap-fit hinges.
-hinge_hardware_tolerance = 0.1; // [0:0.01:0.3]
-
 /* [Hinges / snap-fit] */
 
 // Length of each snap-fit hinge
@@ -188,6 +185,9 @@ hinge_pin_length = 25;
 
 // Diameter of the hinge pin (budget tip: use 1.75 for a filament string)
 hinge_pin_diameter = 1.75; // .05
+
+// Extra clearance added to the pin hole. Increase if the pin doesn't fit.
+hinge_pin_tolerance = 0.1; // [0:0.01:0.3]
 
 /* [Hinges / screw with nut] */
 
@@ -209,6 +209,9 @@ hinge_nut_width = 1.8; // .1
 // Hinge screw nut size (i.e., the spanner/wrench size needed)
 hinge_nut_size = 4; // .1
 
+// Extra clearance added to screw/nut hardware fit (screw hole, head and nut counterbores). Increase if hardware doesn't fit.
+hinge_screw_nut_tolerance = 0.1; // [0:0.01:0.3]
+
 /* [Hinges / self-tapping screw] */
 
 // Type of the self-tapping screw (ISO/metric and UTS/imperial standards)
@@ -221,7 +224,7 @@ hinge_self_tap_screw_length = 25;
 hinge_self_tap_screw_tap_depth = 10; // .5
 
 // Safety gap between the screw tip and the edge of the hinge
-hinge_self_tap_screw_gap = 2; // .5
+hinge_self_tap_screw_safety_gap = 2; // .5
 
 /* [Latches] */
 

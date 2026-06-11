@@ -116,9 +116,9 @@ function get_lid_cut_out_rounding() = max(MIN_CORNER_RADIUS, corner_outer_radius
 // Hinges
 function get_hinge_knuckle_offset() = hinge_knuckle_diameter / 2 + hinge_mount_gap;
 function get_hinge_length() = hinge_join_type == "screw_self_tap"
-  ? hinge_self_tap_screw_length + hinge_self_tap_screw_gap
+  ? hinge_self_tap_screw_length + hinge_self_tap_screw_safety_gap
   : hinge_join_type == "screw_nut"
-    ? hinge_screw_length + hinge_screw_head_width + 4*hinge_hardware_tolerance
+    ? hinge_screw_length + hinge_screw_head_width + 4*hinge_screw_nut_tolerance
     : hinge_join_type == "snap_fit"
       ? hinge_snap_fit_length
       : hinge_pin_length;
