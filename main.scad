@@ -270,7 +270,7 @@ connection_type = "bump_box"; // [off: Off, bump_box: Bump on box & groove on li
 connection_groove_percentage = 80; // [0:1:100]
 
 // Bump diameter as percentage of wall thickness. Must be <= groove percentage.
-connection_bump_percentage = 70; // [0:1:100]
+connection_bump_percentage = 60; // [0:1:100]
 
 /* [Lid notches] */
 
