@@ -165,7 +165,7 @@ hinge_flip_last = false;
 hinge_arm_angle = 45; // [30:1:90]
 
 // Additional offset between the hinge and the box/lid
-hinge_mount_gap = 0.1; // .05
+hinge_mount_gap = 0.25; // .05
 
 // Gap between hinge segments. WARNING: snap-fit hinge is optimized to default gap 0.15. If you adjust the gap you might need to adjust "hinge_snap_fit_firmness" too.
 hinge_segments_gap = 0.15; // .05
