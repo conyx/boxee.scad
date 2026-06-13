@@ -146,6 +146,7 @@ function get_magnet_hole_height() = magnet_height + magnet_glue_height + 2*magne
 // Connection groove / bump
 function get_connection_groove_diameter() = connection_groove_percentage / 100 * thickness;
 function get_connection_bump_diameter() = connection_bump_percentage / 100 * thickness;
+function get_connection_height_scale() = connection_height_percentage / 100;
 function get_connection_rounding() = max(MIN_CORNER_RADIUS, corner_outer_radius - thickness/2);
 
 // Latches

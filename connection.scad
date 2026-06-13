@@ -2,12 +2,13 @@
 // Bump is the smaller protrusion, groove is the larger channel that receives it.
 
 module connection_sweep(diameter) {
-  path_sweep2d(
-    circle(d = diameter),
-    rect([get_x_width_outside() - thickness, get_y_depth_outside() - thickness],
-         rounding = get_connection_rounding()),
-    closed=true
-  );
+  scale([1, 1, get_connection_height_scale()])
+    path_sweep2d(
+      circle(d = diameter),
+      rect([get_x_width_outside() - thickness, get_y_depth_outside() - thickness],
+          rounding = get_connection_rounding()),
+      closed=true
+    );
 }
 
 // type = "bump" or "groove"
