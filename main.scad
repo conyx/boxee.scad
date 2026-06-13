@@ -187,7 +187,7 @@ hinge_pin_length = 25;
 hinge_pin_diameter = 1.75; // .05
 
 // Extra clearance added to the pin hole. Increase if the pin doesn't fit.
-hinge_pin_tolerance = 0.1; // [0:0.01:0.3]
+hinge_pin_tolerance = 0.15; // [0:0.01:0.3]
 
 /* [Hinges / screw with nut] */
 
@@ -224,7 +224,7 @@ hinge_self_tap_screw_length = 25;
 hinge_self_tap_screw_tap_depth = 10; // .5
 
 // Safety gap between the screw tip and the edge of the hinge
-hinge_self_tap_screw_safety_gap = 2; // .5
+hinge_self_tap_screw_safety_gap = 1; // .5
 
 /* [Latches] */
 
