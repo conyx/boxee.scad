@@ -288,6 +288,8 @@ lid_notches_spacing = 1.5; // .1
 
 /* [Hidden] */
 
+$preview = $preview; // https://github.com/openscad/openscad/issues/6867
+
 $fs = pow(10, -get_model_detail()); // 1 = min detail, 0.1 = max detail
 $fa = pow(10, 1 - get_model_detail()); // 10 = min detail, 1 = max detail
 
