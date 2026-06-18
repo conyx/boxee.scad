@@ -116,7 +116,7 @@ module knuckle_hinge_snap_fit_sockets(length,
 module hinge(is_box_hinge) {
   screw_head_cut_h = hinge_screw_head_width + 2 * hinge_screw_nut_tolerance;
   screw_head_cut_d = hinge_screw_head_diameter + 2 * hinge_screw_nut_tolerance;
-  screw_nut_cut_h = hinge_nut_width + 2 * hinge_screw_nut_tolerance;
+  screw_nut_cut_h = 1.5 * hinge_nut_width + 2 * hinge_screw_nut_tolerance;
   screw_nut_cut_id = hinge_nut_size + 2 * hinge_screw_nut_tolerance;
 
   color(OUTSIDE_ACCESSORIES_COLOR)

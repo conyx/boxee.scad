@@ -203,7 +203,7 @@ hinge_screw_head_width = 1.8; // .1
 // Hinge screw head diameter
 hinge_screw_head_diameter = 4; // .1
 
-// Hinge screw nut width (depth of the nut counterbore)
+// Hinge screw nut width (the nut counterbore is cut 1.5x deeper than this, so the nut seats firmly on the screw)
 hinge_nut_width = 1.8; // .1
 
 // Hinge screw nut size (i.e., the spanner/wrench size needed)
