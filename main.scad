@@ -36,10 +36,10 @@ compartments_dimensions = "50, 20, 55, 55, 20; 25, 37.5, 37.5, 37.5, 37.5";
 compartments_transpose = false;
 
 // Bottom part (box) height. The sum of the bottom and lid heights equals the total interior height of the container.
-bottom_height = 25; // .5
+bottom_height = 25; // .1
 
 // Lid height. The sum of the bottom and lid heights equals the total interior height of the container. This has no effect if slider lid is in use.
-lid_height = 10; // .5
+lid_height = 10; // .1
 
 // Wall thickness. This adds to the outside dimensions of the box.
 thickness = 2.4; // .1
@@ -50,7 +50,7 @@ thickness = 2.4; // .1
 separator_thickness = 1.0; // .1
 
 // Lowers separators from the top by this amount, creating shared open space above the compartments (0 = separators reach full height).
-separators_z_offset = 0; // .5
+separators_z_offset = 0; // .1
 
 // Whether corresponding separators should also be generated inside the lid. This has no effect if slider lid is in use.
 separators_inside_lid = false;
@@ -107,7 +107,7 @@ slider_lid_tolerance = 0.1; // [0:0.01:0.3]
 /* [Lip] */
 
 // Height of lip above box top, used for the friction fit.
-lip_height = 5; // .5
+lip_height = 5; // .1
 
 // Wall thickness of the lip.
 lip_thickness = 0.8; // .1
@@ -121,13 +121,13 @@ lip_tolerance = 0.1; // [0:0.01:0.3]
 magnets_number = 2; // [2: 2 magnets, 4: 4 magnets]
 
 // Magnet diameter
-magnet_diameter = 3;  // .5
+magnet_diameter = 3;  // .1
 
 // Magnet height
-magnet_height = 3;  // .5
+magnet_height = 3;  // .1
 
 // Magnet holder diameter (must be greater than magnet_diameter)
-magnet_holder_diameter = 5;  // .5
+magnet_holder_diameter = 5;  // .1
 
 // Extra height for (super) glue to secure magnets in their holes
 magnet_glue_height = 0.5; // [0.1:0.1:3]
@@ -156,7 +156,7 @@ hinge_segments = 3; // [2:1:30]
 hinge_segments_ratio = 1; // [0.2:0.1:5]
 
 // Hinge knuckle diameter
-hinge_knuckle_diameter = 6;  // .5
+hinge_knuckle_diameter = 6;  // .1
 
 // Whether the last hinge should be mirrored (e.g., for easier screwdriver access or a symmetric hinge pair)
 hinge_flip_last = false;
@@ -192,10 +192,10 @@ hinge_pin_tolerance = 0.15; // [0:0.01:0.3]
 /* [Hinges / screw with nut] */
 
 // Hinge screw length (without head)
-hinge_screw_length = 25;
+hinge_screw_length = 25; // .1
 
 // Hinge screw diameter
-hinge_screw_diameter = 2.5;  // .05
+hinge_screw_diameter = 2.5;  // .1
 
 // Hinge screw head width (depth of the screw head counterbore)
 hinge_screw_head_width = 1.8; // .1
