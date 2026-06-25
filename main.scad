@@ -106,7 +106,7 @@ slider_lid_tolerance = 0.1; // [0:0.01:0.3]
 
 /* [Lip] */
 
-// Height of lip above box top, used for the friction fit.
+// Height of lip above box top.
 lip_height = 5; // .1
 
 // Wall thickness of the lip.
