@@ -191,23 +191,23 @@ hinge_pin_tolerance = 0.15; // [0:0.01:0.3]
 
 /* [Hinges / screw with nut] */
 
-// Hinge screw length (without head)
-hinge_screw_length = 25; // .1
-
 // Hinge screw diameter
 hinge_screw_diameter = 2.5;  // .1
 
-// Hinge screw head width (depth of the screw head counterbore)
-hinge_screw_head_width = 1.8; // .1
+// Hinge screw length (without head)
+hinge_screw_length = 25; // .1
 
 // Hinge screw head diameter
 hinge_screw_head_diameter = 4; // .1
 
-// Hinge screw nut width (the nut counterbore is cut 1.5x deeper than this, so the nut seats firmly on the screw)
-hinge_nut_width = 1.8; // .1
+// Hinge screw head width (depth of the screw head counterbore)
+hinge_screw_head_width = 1.8; // .1
 
 // Hinge screw nut size (i.e., the spanner/wrench size needed)
 hinge_nut_size = 4; // .1
+
+// Hinge screw nut width (the nut counterbore is cut 1.5x deeper than this, so the nut seats firmly on the screw)
+hinge_nut_width = 1.8; // .1
 
 // Extra clearance added to screw/nut hardware fit (screw hole, head and nut counterbores). Increase if hardware doesn't fit.
 hinge_screw_nut_tolerance = 0.1; // [0:0.01:0.3]
