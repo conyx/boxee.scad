@@ -275,7 +275,7 @@ connection_bump_percentage = 60; // [0:1:100]
 // Vertical scale of the bump/groove cross-section as a percentage. 100% = full circle, 50% = flattened to half height in Z.
 connection_height_percentage = 90; // [50:1:100]
 
-/* [Lid notches] */
+/* [Surface] */
 
 // Where lid notches (for easier lid opening) should be generated. This has no effect on the sides where hinges are mounted. Also, this has no effect if slider lid is in use.
 lid_notches = "all"; // [no: None,x:X sides only, y:Y sides only, all:Both X and Y sides]
