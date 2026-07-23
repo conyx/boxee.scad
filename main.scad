@@ -23,8 +23,8 @@ lid_type = "slider"; // [no_lid: No lid, lip: Lip, magnets: Magnets, lip_magnets
 // Model detail in preview mode. Increase for better but slower results in preview mode.
 model_detail_preview = 0.4; // [0:0.01:1]
 
-// Model detail of the result STL. Increase for better but slower results when generating STL.
-model_detail_stl = 0.9; // [0:0.01:1]
+// Model detail of the final render. Increase for better but slower results when rendering.
+model_detail_render = 0.9; // [0:0.01:1]
 
 // Generate a summary plate with dimensions and accessory info (only in preview mode).
 generate_summary_plate = true;

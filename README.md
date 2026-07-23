@@ -264,7 +264,7 @@ Other features
   screwdriver access or a symmetric pair.
 - Latches: count, size and the angles of the support and hinge arm are
   configurable.
-- `model_detail_preview` / `model_detail_stl` trade speed for smoothness
+- `model_detail_preview` / `model_detail_render` trade speed for smoothness
   separately in preview and in the final render.
 - Optional `make` command merges all sources into a single standalone `boxee.scad` file, handy
   for sharing or online customizers.

@@ -2,7 +2,7 @@
 function xor(a, b) = a != b;
 
 // Model detail
-function get_model_detail() = $preview ? model_detail_preview : model_detail_stl;
+function get_model_detail() = $preview ? model_detail_preview : model_detail_render;
 
 // Cosine polygon
 function get_cosine_polygon_x_size(periods, y_size, x_scale) =
