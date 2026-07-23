@@ -47,6 +47,24 @@ for magnet closures.
 
 <img src="images/summary_plate.png" width="600">
 
+Examples
+--------
+
+The [examples](examples) folder contains three ready-to-print projects, each
+with the STL and photos of the printed result:
+
+- **[Medi box](examples/medi_box)** — medical box with a slider lid and
+  compartments sized for pill bottles; the cross-shaped notches on the lid make
+  opening easier (the healthcare symbol on the walls is a negative volume added
+  in the slicer software).
+- **[Hardware box](examples/hardware_box)** — organizer for small screws and
+  nuts, hinged together and lockable by a latch with snap lock.
+- **[Tool box](examples/tool_box)** — box for iFixit tools with a lip and
+  magnetic lid (the screwdriver pattern on the lid was added in the slicer
+  software).
+
+<img src="examples/4x3.jpg" width="600">
+
 Compartments
 ------------
 
