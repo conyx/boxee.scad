@@ -41,9 +41,9 @@ Usage
 3. Preview (F5), render (F6), export STL. All parts are laid out side by side in
    print orientation.
 
-The console (and a summary plate under the model in preview) reports the outside
-dimensions, the hardware you need (screws, pins, magnets) and print-pause heights
-for magnet closures.
+The console (and a summary plate under the model) reports the outside dimensions,
+the hardware you need (screws, pins, magnets) and print-pause heights for magnet
+closures.
 
 <img src="images/summary_plate.png" width="600">
 

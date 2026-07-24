@@ -26,7 +26,7 @@ model_detail_preview = 0.4; // [0:0.01:1]
 // Model detail of the final render. Increase for better but slower results when rendering.
 model_detail_render = 0.9; // [0:0.01:1]
 
-// Generate a summary plate with dimensions and accessory info (only in preview mode).
+// Generate a summary plate with dimensions and accessory info.
 generate_summary_plate = true;
 
 // Compartment dimensions as text. Format per row: "DEPTH, WIDTH, WIDTH, ...". Rows are separated by semicolon ";". The first number of each row is its DEPTH (Y), followed by WIDTHs (X) of compartments in that row. (TIP: Use "100, 100" for a single full-box compartment.)
