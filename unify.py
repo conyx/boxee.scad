@@ -77,16 +77,23 @@ def inline(source):
 
 def remove_preview(lines):
     text = "\n".join(lines)
-    # Drop the model_detail_preview parameter together with its comment above.
-    text = re.sub(r"(?m)^//[^\n]*\n^model_detail_preview\s*=[^\n]*\n\n?", "", text)
-    # The render detail now drives the customizer preview too, so lower it a bit.
-    text = re.sub(r"(?m)^(model_detail_render\s*=\s*)[0-9.]+", r"\g<1>0.75", text)
-    # The $preview self-assignment workaround is pointless once nothing reads it.
-    text = re.sub(r"(?m)^\$preview\s*=\s*\$preview\s*;[^\n]*\n\n?", "", text)
-    text = text.replace("generate_summary_plate && $preview", "generate_summary_plate")
-    text = text.replace(
-        "$preview ? model_detail_preview : model_detail_render", "model_detail_render"
-    )
+    replacements = [
+        # Drop the model_detail_preview parameter together with its comment above.
+        (r"(?m)^//[^\n]*\n^model_detail_preview\s*=[^\n]*\n\n?", ""),
+        # The render detail now drives the customizer preview too, so lower it a bit.
+        (r"(?m)^(model_detail_render\s*=\s*)[0-9.]+", r"\g<1>0.75"),
+        # The $preview self-assignment workaround is pointless once nothing reads it.
+        (r"(?m)^\$preview\s*=\s*\$preview\s*;[^\n]*\n\n?", ""),
+        (re.escape("generate_summary_plate && $preview"), "generate_summary_plate"),
+        (
+            re.escape("$preview ? model_detail_preview : model_detail_render"),
+            "model_detail_render",
+        ),
+    ]
+    for pattern, replacement in replacements:
+        text, count = re.subn(pattern, replacement, text)
+        if count != 1:
+            sys.exit(f"unify.py: expected exactly 1 match for {pattern!r}, found {count}")
     for marker in ("$preview", "model_detail_preview"):
         if marker in text:
             sys.exit(f"unify.py: '{marker}' still present after --remove-preview")
