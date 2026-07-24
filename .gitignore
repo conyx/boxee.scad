@@ -13,8 +13,10 @@
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 !*.code-workspace
-.claude/
-.mcp.json
+
+# AI
+.claude/settings.local.json
+.claude/ide/*
 
 # System Files
 .DS_Store
@@ -24,4 +26,4 @@ Thumbs.db
 main.json
 boxee.scad
 boxee.json
-*.stl
+./*.stl
