@@ -58,10 +58,11 @@ with the STL and photos of the printed result:
   opening easier (the healthcare symbol visible on the walls in the photo is a
   negative volume added in the slicer software).
 - **[Hardware box](examples/hardware_box)** — organizer for small screws and
-  nuts, hinged together and lockable by a latch with snap lock.
+  nuts, hinged together and lockable by a latch with snap lock. Needs two
+  2.5 × 30 mm screws with nuts for the hinges.
 - **[Tool box](examples/tool_box)** — box for iFixit tools with a lip and
   magnetic lid (the screwdriver pattern visible on the lid in the photo was
-  added in the slicer software).
+  added in the slicer software). Needs four 4 × 4 mm cylindrical magnets.
 
 <img src="examples/4x3.jpg" width="600">
 
