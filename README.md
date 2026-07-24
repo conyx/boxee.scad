@@ -55,13 +55,13 @@ with the STL and photos of the printed result:
 
 - **[Medi box](examples/medi_box)** — medical box with a slider lid and
   compartments sized for pill bottles; the cross-shaped notches on the lid make
-  opening easier (the healthcare symbol on the walls is a negative volume added
-  in the slicer software).
+  opening easier (the healthcare symbol visible on the walls in the photo is a
+  negative volume added in the slicer software).
 - **[Hardware box](examples/hardware_box)** — organizer for small screws and
   nuts, hinged together and lockable by a latch with snap lock.
 - **[Tool box](examples/tool_box)** — box for iFixit tools with a lip and
-  magnetic lid (the screwdriver pattern on the lid was added in the slicer
-  software).
+  magnetic lid (the screwdriver pattern visible on the lid in the photo was
+  added in the slicer software).
 
 <img src="examples/4x3.jpg" width="600">
 
@@ -266,8 +266,6 @@ Other features
   configurable.
 - `model_detail_preview` / `model_detail_render` trade speed for smoothness
   separately in preview and in the final render.
-- Optional `make` command merges all sources into a single standalone `boxee.scad` file, handy
-  for sharing or online customizers.
 
 License
 -------
