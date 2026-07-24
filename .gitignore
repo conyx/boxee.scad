@@ -25,5 +25,6 @@ Thumbs.db
 # generated
 main.json
 boxee.scad
+boxee-customizer.scad
 boxee.json
 ./*.stl
