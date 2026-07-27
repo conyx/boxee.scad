@@ -247,7 +247,7 @@ from `magnet_diameter` / `magnet_height` plus `magnet_tolerance`, with
   *during* the print. You have to **pause the print** at the right layer for both
   the box and the lid — the exact heights are echoed to the console and shown on
   the summary plate (e.g. `Box: AFTER Z layer: <26.95>mm`). In PrusaSlicer, add
-  the pause with *Insert pause* at that layer — see
+  the pause with *Insert pause* at first layer after that height — see
   [Prusa's guide](https://help.prusa3d.com/article/insert-pause-or-custom-g-code-at-layer_120490).
 
 Double-check magnet polarity before inserting: every box/lid pair must attract.
