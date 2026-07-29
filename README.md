@@ -268,6 +268,15 @@ Other features
 - `model_detail_preview` / `model_detail_render` trade speed for smoothness
   separately in preview and in the final render.
 
+Links
+-----
+
+boxee.scad is available at multiple 3D model hosting sites:
+
+* [MakerWorld](https://makerworld.com/models/3100259-boxee-scad-parametric-storage-box-with-lid)
+* [Printables](https://www.printables.com/model/1792385-boxeescad-parametric-storage-box-with-lid)
+* [Thingiverse](https://www.thingiverse.com/thing:7388306)
+
 License
 -------
 
