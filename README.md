@@ -27,10 +27,8 @@ Dependencies
 - **OpenSCAD — a recent [development snapshot (nightly)](https://openscad.org/downloads.html#snapshots) is recommended.**
   The 2021.01 stable release works too, but can be very slow with some specific
   parameters.
-- **[BOSL2 library](https://github.com/BelfrySCAD/BOSL2)** — use the latest master;
-  the hinges rely on recent BOSL2 features. Install it into your OpenSCAD library
-  folder as described in the [BOSL2 installation guide](https://github.com/BelfrySCAD/BOSL2?tab=readme-ov-file#installation)
-  (find the folder via *File ▸ Show Library Folder* in OpenSCAD).
+- **BOSL2 library** — Install it into your OpenSCAD library folder as described
+  in the [BOSL2 installation guide](https://github.com/BelfrySCAD/BOSL2?tab=readme-ov-file#installation).
 
 Usage
 -----
