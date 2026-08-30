@@ -94,7 +94,7 @@ module slider_base(is_clearance = false) {
 }
 
 module slider_rail_snap_lock_front_base_2d(snap_lock_male_size) {
-  cosine_polygon(
+  cosine_wave(
     y_size=snap_lock_male_size,
     periods=1,
     x_scale=get_slider_lid_snap_lock_x_scale(),
@@ -106,13 +106,13 @@ module slider_rail_snap_lock_front() {
   if (slider_lid_snap_lock) {
     grip = get_slider_lid_grip();
     snap_lock_female_size = get_slider_lid_snap_lock_size();
-    snap_lock_female_period_x_size = get_cosine_polygon_x_size(
+    snap_lock_female_period_x_size = get_cosine_wave_x_size(
       1,
       snap_lock_female_size,
       get_slider_lid_snap_lock_x_scale()
     );
     snap_lock_male_size = snap_lock_female_size * 0.9;
-    snap_lock_male_period_x_size = get_cosine_polygon_x_size(
+    snap_lock_male_period_x_size = get_cosine_wave_x_size(
       1,
       snap_lock_male_size,
       get_slider_lid_snap_lock_x_scale()
@@ -165,7 +165,7 @@ module slider_base_snap_lock_clearance_front() {
           anchor=RIGHT+BOTTOM
         );
       linear_extrude(clearance_height)
-        cosine_polygon(
+        cosine_wave(
           y_size=snap_lock_size,
           periods=1.5,
           x_scale=get_slider_lid_snap_lock_x_scale()

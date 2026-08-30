@@ -4,30 +4,30 @@ function xor(a, b) = a != b;
 // Model detail
 function get_model_detail() = $preview ? model_detail_preview : model_detail_render;
 
-// Cosine polygon
-function get_cosine_polygon_x_size(periods, y_size, x_scale) =
+// Cosine wave 2D shape
+function get_cosine_wave_x_size(periods, y_size, x_scale) =
   periods * PI * y_size * x_scale;
-module cosine_polygon(y_size, periods, x_scale = 1, is_negative = false) {
+module cosine_wave(y_size, periods, x_scale = 1, is_negative = false) {
   steps = 100 * periods * get_model_detail();
   degrees = periods * 360;
-  x_size = get_cosine_polygon_x_size(periods, y_size, x_scale);
-  y_aplitude = y_size / 2;
-  cosine_polygon_points = [
+  x_size = get_cosine_wave_x_size(periods, y_size, x_scale);
+  y_amplitude = y_size / 2;
+  cosine_wave_points = [
       for (i = [0:steps])
         let(x = i * x_size / steps, degree = i * degrees / steps)
-          [x, cos(degree) * y_aplitude],
-      [x_size, -y_aplitude],
-      [0, -y_aplitude]
+          [x, cos(degree) * y_amplitude],
+      [x_size, -y_amplitude],
+      [0, -y_amplitude]
   ];
   if (is_negative) {
     difference() {
       rect([x_size, y_size], anchor=LEFT);
       offset(SWO)
-        polygon(cosine_polygon_points);
+        polygon(cosine_wave_points);
     }
   } else {
     offset(SWO)
-      polygon(cosine_polygon_points);
+      polygon(cosine_wave_points);
   }
 }
 
