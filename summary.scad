@@ -14,12 +14,17 @@ module summary() {
                + (get_generate_latches_back() ? get_latch_hinge_diameter() : 0),
              "mm")]
       : [],
-    [str(lid_type == "slider" ? "Z (height) box (w/o slider rail): " : "Z (height) box: ",
+    [str(lid_type == "slider"
+           ? "Z (height) box (w/o slider rail): "
+           : get_generate_lip()
+             ? "Z (height) box (incl. lip): "
+             : "Z (height) box: ",
          get_box_height_outside(),
          "mm")],
     get_generate_lid()
       ? [str("Z (height) lid: ", get_lid_height_outside(), "mm"),
-         str("Z (height) overall: ", get_box_height_outside() + get_lid_height_outside(), "mm")]
+         // The lip sits inside the lid, so it doesn't add to the overall height
+         str("Z (height) overall: ", get_bottom_height_outside() + get_lid_height_outside(), "mm")]
       : []
   );
 
@@ -85,8 +90,8 @@ module summary() {
 
     // Columns X positions
     col1_x = text_x;
-    col2_x = col1_x + font_size * 21;
-    col3_x = col2_x + ((len(col2) > 0) ? font_size * 14 : 0);
+    col2_x = col1_x + font_size * 23;
+    col3_x = col2_x + ((len(col2) > 0) ? font_size * 13 : 0);
     col4_x = col3_x + ((len(col3) > 0) ? font_size * 23 : 0);
 
     // Render columns [lines, x_position]
