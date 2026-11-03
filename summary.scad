@@ -15,11 +15,11 @@ module summary() {
              "mm")]
       : [],
     [str(lid_type == "slider"
-           ? "Z (height) box (w/o slider rail): "
+           ? "Z (height) box (incl. slider rail): "
            : get_generate_lip()
              ? "Z (height) box (incl. lip): "
              : "Z (height) box: ",
-         get_box_height_outside(),
+         get_box_height_outside() + (lid_type == "slider" ? slider_lid_thickness : 0),
          "mm")],
     get_generate_lid()
       ? [str("Z (height) lid: ", get_lid_height_outside(), "mm"),
