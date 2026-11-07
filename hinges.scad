@@ -92,25 +92,24 @@ module knuckle_hinge_snap_fit_sockets(length,
 
   // knuckle_hinge() runs segments along -X by index, so step copies likewise
   left(even_segments_x_shift)
-    xcopies(n = segments_number, spacing = -segment_spacing) {
+    xcopies(n = segments_number, spacing = -segment_spacing)
       // the hinge's far end has no mating cone, so it needs no socket
-      is_edge = (!inner && segs % 2 == 1 && $idx == 0) ||
-                (inner && segs % 2 == 0 && $idx == segments_number - 1);
-      if (!is_edge) {
-        // a spike-cut seat on the pin axis, hulled up to a full lead-in cone
-        // at the barrel top: the channel the mating cone presses down into
-        hull()
-          for (c = [[pin_z,        seat_height, seat_tip_radius],  // seat (spike-cut)
-                    [barrel_top_z, cone_height, 0]])               // lead-in (full cone)
-            let (z = c[0], cone_len = c[1], tip_radius = c[2])
-              // base on the receiving face, tip pointing into the segment
-              translate([socket_face_x_offset, 0, z])
-                xcyl(l = cone_len,
-                     r1 = inner ? cone_radius : tip_radius,
-                     r2 = inner ? tip_radius : cone_radius,
-                     anchor = inner ? LEFT : RIGHT);
-      }
-    }
+      let (is_edge = (!inner && segs % 2 == 1 && $idx == 0) ||
+                     (inner && segs % 2 == 0 && $idx == segments_number - 1))
+        if (!is_edge) {
+          // a spike-cut seat on the pin axis, hulled up to a full lead-in cone
+          // at the barrel top: the channel the mating cone presses down into
+          hull()
+            for (c = [[pin_z,        seat_height, seat_tip_radius],  // seat (spike-cut)
+                      [barrel_top_z, cone_height, 0]])               // lead-in (full cone)
+              let (z = c[0], cone_len = c[1], tip_radius = c[2])
+                // base on the receiving face, tip pointing into the segment
+                translate([socket_face_x_offset, 0, z])
+                  xcyl(l = cone_len,
+                       r1 = inner ? cone_radius : tip_radius,
+                       r2 = inner ? tip_radius : cone_radius,
+                       anchor = inner ? LEFT : RIGHT);
+        }
 }
 
 module hinge(is_box_hinge) {
