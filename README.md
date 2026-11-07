@@ -24,9 +24,7 @@ Main features
 Dependencies
 ------------
 
-- **OpenSCAD — a recent [development snapshot (nightly)](https://openscad.org/downloads.html#snapshots) is recommended.**
-  The 2021.01 stable release works too, but can be very slow with some specific
-  parameters.
+- **OpenSCAD** — a recent [release candidate](https://openscad.org/downloads.html#rc) is recommended.
 - **BOSL2 library** — Install it into your OpenSCAD library folder as described
   in the [BOSL2 installation guide](https://github.com/BelfrySCAD/BOSL2?tab=readme-ov-file#installation).
 
